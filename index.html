@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Word Prediction Application</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Word Prediction Application">
+  <meta name="author" content="Alin C. Radu">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  
+  <hgroup class="auto-fadein">
+    <h1>Word Prediction Application</h1>
+    <h2>Capstone Project for Data Science Specialization</h2>
+    <p>Alin C. Radu<br/></p>
+  </hgroup>
+  
+  <article></article>  
+  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  
+  <hgroup>
+    <h2>Description</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p>The application predicts the most likely word(s) to follow a given text.</p>
+
+<h3>Location</h3>
+
+<p><a href="https://allin-cornell.shinyapps.io/application/">https://allin-cornell.shinyapps.io/application/</a></p>
+
+<h3>Features</h3>
+
+<ul>
+<li>large and various training datasets </li>
+<li>fast and efficient algorithms</li>
+</ul>
+
+<h3>Interface</h3>
+
+<ul>
+<li>simple and attarctive layout</li>
+<li>easy-to-use and self-explanatory</li>
+<li>user-friendly and reactive</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  
+  <hgroup>
+    <h2>Application Interface</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <div style='text-align: center;'>
+    <img height='200' src='interface.png' />
+</div>
+
+<h3>Options</h3>
+
+<ul>
+<li>Predicted Words = choose how many top predicted words to show: 1/2/3</li>
+<li>Clean Phrase = choose whether to show the raw cleaned processed input: Yes/No</li>
+</ul>
+
+<h3>Outputs</h3>
+
+<ul>
+<li>Clean Input Phrase = show the raw cleaned processed input phrase</li>
+<li>Next Predicted Word = show the top most likely predicted next word</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  
+  <hgroup>
+    <h2>Raw Data</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p>The data used in to train the predictive algorithm SwiftKey from several sources:</p>
+
+<ul>
+<li>Twitter: &quot;/en_US/en_US.twitter.txt&quot;</li>
+<li>Blogs: &quot;/en_US/en_US.blogs.txt&quot;</li>
+<li>News: &quot;/en_US/en_US.news.txt&quot;</li>
+</ul>
+
+<h3>Processing data</h3>
+
+<ul>
+<li>Create a common dataset with all texts from all datas ources</li>
+<li>Clean data by removing: sopaces, numbers, punctuations, etc.</li>
+<li>Select samples of 50,000-texts subsets from the datasets</li>
+<li>Create: bigrams, trigrams, quadrigrams from each sample </li>
+<li>Order: bigrams, trigrams, quadrigrams by their appearance frequency in the dataset</li>
+</ul>
+
+<h4>NOTE: bigrams, trigrams, quadrigrams are groups of consecutive 2, 3, or 4 words</h4>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  
+  <hgroup>
+    <h2>Processed Data</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <h3>The top 20 most frequent quadrigrams, trigrams and bigrams</h3>
+
+<div style='text-align: center;'>
+    <img height='300' src='4words.png' />
+    <img height='300' src='3words.png' />
+    <img height='300' src='2words.png' />
+</div>
+
+<h3>How it works</h3>
+
+<ul>
+<li>Find last 3, 2 or 1 word(s) of the cleaned input phrase </li>
+<li>Find matches with the first 3, 2, 1 words in the quadrigrams, trigrams, bigrams (if available)</li>
+<li>Output the most frequent last word of the respective quadrigrams, trigrams, bigrams</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Description'>
+         1
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Application Interface'>
+         2
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Raw Data'>
+         3
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Processed Data'>
+         4
+      </a>
+    </li>
+    
+    </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
